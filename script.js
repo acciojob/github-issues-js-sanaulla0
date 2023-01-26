@@ -6,10 +6,25 @@ const pNoSpan = document.getElementById('pNo'),
 
 let pageNumber = 1;
 
+const renderIssues=(issues)=>{
+	while(listElement.firstChild){
+		listElement.removeChild(listElement.firstChild);
+	}
+	issues.forEach(issues=>{
+		const li = document.createElement('li');
+		li.textContent = issue.title;
+		listElement.appendChild(li);
+		listElement.innerHTML = `
+            <div><li style="color:black">${issues.title}</li>
+			</div>`
+	}
+}
+
+
 
 const fetchIssues = async()=> {
     pNoSpan.textContent = pageNumber;
-    const url  = `https://api.github.com/repositories/1296269/issues?page=${pageNumber}&per_page=5`
+    const url  = `https://api.github.com/repositories/1296269/issues?page=${pageNumberHere}&per_page=5`
     const res = await fetch(url);
     const data = await res.json();
 
