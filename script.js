@@ -14,9 +14,9 @@ const renderIssues=(issues)=>{
 		const li = document.createElement('li');
 		li.textContent = issues.title;
 		
-		li.innerHTML = `
-            <div><li style="color:black">${issues.title}</li>
-			</div>`
+		// li.innerHTML = `
+  //           <div><li style="color:black">${issues.title}</li>
+		// 	</div>`
 		listElement.appendChild(li);
 	});
 	
@@ -26,7 +26,7 @@ const renderIssues=(issues)=>{
 
 const fetchIssues = async()=> {
     pNoSpan.textContent = pageNumber;
-    const url  = `https://api.github.com/repositories/1296269/issues?page=${pageNumberHere}&per_page=5`
+    const url  = `https://api.github.com/repositories/1296269/issues?page=${pageNumber}&per_page=5`
     const res = await fetch(url);
     const data = await res.json();
 
