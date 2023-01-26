@@ -17,8 +17,9 @@ const renderIssues=(issues)=>{
 		li.innerHTML = `
             <div><li style="color:black">${issues.title}</li>
 			</div>`
+		listElement.appendChild(li);
 	});
-	listElement.appendChild(li);
+	
 }
 
 
