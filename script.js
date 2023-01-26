@@ -12,12 +12,12 @@ const renderIssues=(issues)=>{
 	}
 	issues.forEach(issues=>{
 		const li = document.createElement('li');
-		li.textContent = issue.title;
+		li.textContent = issues.title;
 		listElement.appendChild(li);
 		listElement.innerHTML = `
             <div><li style="color:black">${issues.title}</li>
 			</div>`
-	}
+	});
 }
 
 
@@ -32,13 +32,20 @@ const fetchIssues = async()=> {
 
 }
 
-
-
-
-
-
-
-
+function handleNextClick(){
+	  pageNumber+=1;
+	fetchIssues();
+}
+     function prevClick(){
+      if(pageNumber===1){
+		   alert("page number is 1");
+		  return;
+	  }
+		pageNumber -=1;
+		 fetchIssues();
+		 
+		 
+	 }
 
 
 nextBtn.addEventListener('click' ,handleNextClick);
