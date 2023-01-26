@@ -1,8 +1,8 @@
-//your code here
-const pNoSpan = document.getElementById('pNo'),
-    listElement = document.getElementById('list'),
-    nextBtn = document.getElementById('load_next'),
-    prevBtn = document.getElementById('load_prev');
+
+const pNoSpan = document.getElementById('pNo');
+ const   listElement = document.getElementById('list');
+  const  nextBtn = document.getElementById('load_next');
+  const  prevBtn = document.getElementById('load_prev');
 
 let pageNumber = 1;
 
@@ -13,11 +13,12 @@ const renderIssues=(issues)=>{
 	issues.forEach(issues=>{
 		const li = document.createElement('li');
 		li.textContent = issues.title;
-		listElement.appendChild(li);
-		listElement.innerHTML = `
+		
+		li.innerHTML = `
             <div><li style="color:black">${issues.title}</li>
 			</div>`
 	});
+	listElement.appendChild(li);
 }
 
 
